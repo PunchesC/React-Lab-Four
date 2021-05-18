@@ -11,9 +11,11 @@ import UserLookup from "./Components/UserLookup";
 function App() {
   return (
     <div className="App">
-      <PokemonList />
+   
       
       <UserLookup />
+
+     
     </div>
   );
 }

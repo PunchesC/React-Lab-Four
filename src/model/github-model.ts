@@ -7,10 +7,8 @@ export interface User{
 
 export interface UserRepository{
   name: string;
-  repositorylink:string;
+  html_url:string;
   description?: string;
   language:string;
-  dateandtime: string;
-  urllink: string;
-
+  push_at: string;
 }

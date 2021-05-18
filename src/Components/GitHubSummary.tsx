@@ -2,10 +2,10 @@ import {User, UserRepository} from '../model/github-model';
 import { useEffect, useState } from "react";
 import {fetchUserProfile} from "../service/GitHubApiService";
 import './GitHubSummary.css';
-import UserLookup from './UserLookup';
 
 
-fetchUserProfile("PunchesC").then(d=>console.log(d));
+
+
 
 function GitHubSummary() {
 const [selectedName, setSelectedName] = useState("PunchesC");
@@ -26,16 +26,15 @@ console.log(selectedName);
 
   return (
     <div className="GitHubSummary">
-        <h2>User Profile</h2>
         <label>Enter a GitHub username: 
           <input type="text" value={selectedName} onChange={e => setSelectedName(e.target.value)}/>
           </label>
         { singleUser?
         <div>
-          <p>Name: {singleUser.name}</p>
-          <p>UserName: {singleUser.login}</p>
-          <p>avater: {singleUser.avatar_url}</p>
-          <p>UrlLink: {singleUser.html_url}</p>
+          <p>{singleUser.name}</p>
+          <p>{singleUser.login}</p>
+          <img className="photo" src={singleUser.avatar_url}/>
+          <a href={singleUser.html_url}>Check out their other works!</a>
         </div>:
         <p>Noone found</p>}
     </div>
